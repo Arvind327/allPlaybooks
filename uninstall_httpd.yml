@@ -1,0 +1,14 @@
+---
+- name: playbook uninstall package
+  hosts: all
+  become: true
+  tasks:
+  - name: stop service
+    service:
+      name: httpd
+      state: stopped
+
+  - name: uninstall service
+    yum:
+      name: httpd
+      state: absent
